@@ -1,4 +1,4 @@
-Scrapes state-by-state waiver data from USDA's Food and Nutrition website for SNAP, WIC, USDA Food Programs, and Child Nutrition. By default, the script scrapes the SNAP waivers. Documentation details how to download other waivers.
+Scrapes state-by-state waiver data from USDA's Food and Nutrition website for SNAP.
 
 Contributing: Email contact@covidsnap.org or message me on GitHub to help contribute to our projects.
 
