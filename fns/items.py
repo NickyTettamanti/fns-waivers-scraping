@@ -10,11 +10,13 @@ import scrapy
 
 class FnsItem(scrapy.Item):
     # define the fields for your item here like:
+    program = scrapy.Field()
+    jurisdiction = scrapy.Field()
     date = scrapy.Field()
     request = scrapy.Field()
     status = scrapy.Field()
     url = scrapy.Field()
-    jurisdiction = scrapy.Field()
+
 
     # Todo: If possible, integrate URL for pdf.
     # pdf_request = scrapy.Field()

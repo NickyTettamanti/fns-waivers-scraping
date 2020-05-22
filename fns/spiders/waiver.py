@@ -36,18 +36,55 @@ class WaiverSpider(scrapy.Spider):
 
     def parse(self, response):
 
+        # SNAP
         # Pull the table from the url using xpath of table
-        table_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[1]/tbody/tr')
+        SNAPtable_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[1]/tbody/tr')
+        ChildNutritiontable_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[2]/tbody/tr')
+        USDAtable_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[3]/tbody/tr')
+        WICtable_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[4]/tbody/tr')
+
 
         # Loop through each row of the table
-        for table_row in table_rows[1:]:
-
+        for table_row in SNAPtable_rows[1:]:
             yield {
                 # The .// retains the xpath above from table_rows.
+                'program' : "SNAP",
                 'jurisdiction': response.url.split('covid-19/')[1],
                 'date': table_row.xpath('.//td[1]/text()').extract(),
                 'request' : table_row.xpath('.//td[2]/text()').extract(),
                 'status' : table_row.xpath('.//td[3]/a/text()').extract(),
-                    #todo: extract link to .pdf which is sometimes present, see pdf_request() in items.py
+                'url' : response.url
+            }
+
+        for table_row in ChildNutritiontable_rows[1:]:
+            yield {
+                # The .// retains the xpath above from table_rows.
+                'program' : "Child Nutrition",
+                'jurisdiction': response.url.split('covid-19/')[1],
+                'date': table_row.xpath('.//td[1]/text()').extract(),
+                'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
+                'url' : response.url
+            }
+
+        for table_row in USDAtable_rows[1:]:
+            yield {
+                # The .// retains the xpath above from table_rows.
+                'program' : "USDA Foods Programs",
+                'jurisdiction': response.url.split('covid-19/')[1],
+                'date': table_row.xpath('.//td[1]/text()').extract(),
+                'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
+                'url' : response.url
+            }
+
+        for table_row in WICtable_rows[1:]:
+            yield {
+                # The .// retains the xpath above from table_rows.
+                'program' : "WIC",
+                'jurisdiction': response.url.split('covid-19/')[1],
+                'date': table_row.xpath('.//td[1]/text()').extract(),
+                'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
                 'url' : response.url
             }
