@@ -5,35 +5,34 @@ class WaiverSpider(scrapy.Spider):
     allowed_domains = ['fns.usda.gov']
 
     start_urls = [
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Alabama", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Alaska",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Arizona", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Arkansas",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/California", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Colorado",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Connecticut", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Delaware",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Florida", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Georgia",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Hawaii", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Idaho",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Illinois", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Indiana",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Iowa", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Kansas",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Kentucky", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Louisiana",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Maine", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Maryland",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Massachusetts", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Michigan",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Minnesota", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Mississippi",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Missouri", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Montana",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Nebraska", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Nevada",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/New-Hampshire", "https://www.fns.usda.gov/disaster/pandemic/covid-19/New-Jersey",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/New-Mexico", "https://www.fns.usda.gov/disaster/pandemic/covid-19/New-York",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/North-Carolina", "https://www.fns.usda.gov/disaster/pandemic/covid-19/North-Dakota",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Ohio", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Oklahoma",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Oregon", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Pennsylvania",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Rhode-Island", "https://www.fns.usda.gov/disaster/pandemic/covid-19/South-Carolina",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/South-Dakota", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Tennessee",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Texas", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Utah",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Vermont",  "https://www.fns.usda.gov/disaster/pandemic/covid-19/Virginia",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Washington", "https://www.fns.usda.gov/disaster/pandemic/covid-19/West-Virginia",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Wisconsin", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Wyoming",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/Virgin-Islands", "https://www.fns.usda.gov/disaster/pandemic/covid-19/Guam",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/District-of-columbia"
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/alabama", "https://www.fns.usda.gov/disaster/pandemic/covid-19/alaska",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/arizona", "https://www.fns.usda.gov/disaster/pandemic/covid-19/arkansas",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/california", "https://www.fns.usda.gov/disaster/pandemic/covid-19/colorado",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/connecticut", "https://www.fns.usda.gov/disaster/pandemic/covid-19/delaware",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/florida", "https://www.fns.usda.gov/disaster/pandemic/covid-19/georgia",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/hawaii", "https://www.fns.usda.gov/disaster/pandemic/covid-19/idaho",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/illinois", "https://www.fns.usda.gov/disaster/pandemic/covid-19/indiana",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/iowa", "https://www.fns.usda.gov/disaster/pandemic/covid-19/kansas",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/kentucky", "https://www.fns.usda.gov/disaster/pandemic/covid-19/louisiana",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/maine", "https://www.fns.usda.gov/disaster/pandemic/covid-19/maryland",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/massachusetts", "https://www.fns.usda.gov/disaster/pandemic/covid-19/michigan",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/minnesota", "https://www.fns.usda.gov/disaster/pandemic/covid-19/mississippi",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/missouri", "https://www.fns.usda.gov/disaster/pandemic/covid-19/montana",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/nebraska", "https://www.fns.usda.gov/disaster/pandemic/covid-19/nevada",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/new-hampshire", "https://www.fns.usda.gov/disaster/pandemic/covid-19/new-jersey",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/new-mexico", "https://www.fns.usda.gov/disaster/pandemic/covid-19/new-york",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/north-carolina", "https://www.fns.usda.gov/disaster/pandemic/covid-19/north-dakota",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/ohio", "https://www.fns.usda.gov/disaster/pandemic/covid-19/oklahoma",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/oregon", "https://www.fns.usda.gov/disaster/pandemic/covid-19/pennsylvania",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/rhode-island", "https://www.fns.usda.gov/disaster/pandemic/covid-19/south-carolina",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/south-dakota", "https://www.fns.usda.gov/disaster/pandemic/covid-19/tennessee",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/texas", "https://www.fns.usda.gov/disaster/pandemic/covid-19/utah",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/vermont",  "https://www.fns.usda.gov/disaster/pandemic/covid-19/virginia",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/washington", "https://www.fns.usda.gov/disaster/pandemic/covid-19/west-Virginia",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/wisconsin", "https://www.fns.usda.gov/disaster/pandemic/covid-19/wyoming",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/virgin-islands", "https://www.fns.usda.gov/disaster/pandemic/covid-19/guam",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/district-of-columbia"
     ]
-
 
     def parse(self, response):
 
@@ -45,10 +44,10 @@ class WaiverSpider(scrapy.Spider):
 
             yield {
                 # The .// retains the xpath above from table_rows.
+                'jurisdiction': response.url.split('covid-19/')[1],
                 'date': table_row.xpath('.//td[1]/text()').extract(),
                 'request' : table_row.xpath('.//td[2]/text()').extract(),
                 'status' : table_row.xpath('.//td[3]/a/text()').extract(),
                     #todo: extract link to .pdf which is sometimes present, see pdf_request() in items.py
-                'url' : response.url,
-                'jurisdiction' : response.url.split('covid-19/')[1]
+                'url' : response.url
             }
