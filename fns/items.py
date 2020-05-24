@@ -14,6 +14,7 @@ class FnsItem(scrapy.Item):
     jurisdiction = scrapy.Field()
     date = scrapy.Field()
     request = scrapy.Field()
+    request_receive = scrapy.Field()
     status = scrapy.Field()
     url = scrapy.Field()
 

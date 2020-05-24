@@ -52,6 +52,7 @@ class WaiverSpider(scrapy.Spider):
                 'jurisdiction': response.url.split('covid-19/')[1],
                 'date': table_row.xpath('.//td[1]/text()').extract(),
                 'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'request_receive' : table_row.xpath('.//td[2]/a/text()').extract(),
                 'status' : table_row.xpath('.//td[3]/a/text()').extract(),
                 'url' : response.url
             }
@@ -63,6 +64,7 @@ class WaiverSpider(scrapy.Spider):
                 'jurisdiction': response.url.split('covid-19/')[1],
                 'date': table_row.xpath('.//td[1]/text()').extract(),
                 'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
                 'status' : table_row.xpath('.//td[3]/a/text()').extract(),
                 'url' : response.url
             }
@@ -74,6 +76,7 @@ class WaiverSpider(scrapy.Spider):
                 'jurisdiction': response.url.split('covid-19/')[1],
                 'date': table_row.xpath('.//td[1]/text()').extract(),
                 'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
                 'status' : table_row.xpath('.//td[3]/a/text()').extract(),
                 'url' : response.url
             }
@@ -85,6 +88,7 @@ class WaiverSpider(scrapy.Spider):
                 'jurisdiction': response.url.split('covid-19/')[1],
                 'date': table_row.xpath('.//td[1]/text()').extract(),
                 'request' : table_row.xpath('.//td[2]/text()').extract(),
+                'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
                 'status' : table_row.xpath('.//td[3]/a/text()').extract(),
                 'url' : response.url
             }
