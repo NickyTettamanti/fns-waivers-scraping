@@ -28,7 +28,7 @@ class WaiverSpider(scrapy.Spider):
       "https://www.fns.usda.gov/disaster/pandemic/covid-19/south-dakota", "https://www.fns.usda.gov/disaster/pandemic/covid-19/tennessee",
       "https://www.fns.usda.gov/disaster/pandemic/covid-19/texas", "https://www.fns.usda.gov/disaster/pandemic/covid-19/utah",
       "https://www.fns.usda.gov/disaster/pandemic/covid-19/vermont",  "https://www.fns.usda.gov/disaster/pandemic/covid-19/virginia",
-      "https://www.fns.usda.gov/disaster/pandemic/covid-19/washington", "https://www.fns.usda.gov/disaster/pandemic/covid-19/west-Virginia",
+      "https://www.fns.usda.gov/disaster/pandemic/covid-19/washington", "https://www.fns.usda.gov/disaster/pandemic/covid-19/west-virginia",
       "https://www.fns.usda.gov/disaster/pandemic/covid-19/wisconsin", "https://www.fns.usda.gov/disaster/pandemic/covid-19/wyoming",
       "https://www.fns.usda.gov/disaster/pandemic/covid-19/virgin-islands", "https://www.fns.usda.gov/disaster/pandemic/covid-19/guam",
       "https://www.fns.usda.gov/disaster/pandemic/covid-19/district-of-columbia"
@@ -43,52 +43,51 @@ class WaiverSpider(scrapy.Spider):
         USDAtable_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[3]/tbody/tr')
         WICtable_rows = response.xpath('/html/body/div[2]/div/main/div/div/div[2]/div/div/div/section/table[4]/tbody/tr')
 
-
         # Loop through each row of the table
         for table_row in SNAPtable_rows[1:]:
             yield {
                 # The .// retains the xpath above from table_rows.
                 'program' : "SNAP",
                 'jurisdiction': response.url.split('covid-19/')[1],
-                'date': table_row.xpath('.//td[1]/text()').extract(),
-                'request' : table_row.xpath('.//td[2]/text()').extract(),
-                'request_receive' : table_row.xpath('.//td[2]/a/text()').extract(),
-                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
-                'url' : response.url
+                'date': table_row.xpath('.//td[1]/text()').get(),
+                'request' : table_row.xpath('.//td[2]//text()').getall(),
+                'request_receive' : table_row.xpath('.//td[2]/a/text()').getall(),
+                'status' : table_row.xpath('.//td[3]/a/text()').get(),
             }
 
-        for table_row in ChildNutritiontable_rows[1:]:
-            yield {
-                # The .// retains the xpath above from table_rows.
-                'program' : "Child Nutrition",
-                'jurisdiction': response.url.split('covid-19/')[1],
-                'date': table_row.xpath('.//td[1]/text()').extract(),
-                'request' : table_row.xpath('.//td[2]/text()').extract(),
-                'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
-                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
-                'url' : response.url
-            }
-
-        for table_row in USDAtable_rows[1:]:
-            yield {
-                # The .// retains the xpath above from table_rows.
-                'program' : "USDA Foods Programs",
-                'jurisdiction': response.url.split('covid-19/')[1],
-                'date': table_row.xpath('.//td[1]/text()').extract(),
-                'request' : table_row.xpath('.//td[2]/text()').extract(),
-                'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
-                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
-                'url' : response.url
-            }
-
-        for table_row in WICtable_rows[1:]:
-            yield {
-                # The .// retains the xpath above from table_rows.
-                'program' : "WIC",
-                'jurisdiction': response.url.split('covid-19/')[1],
-                'date': table_row.xpath('.//td[1]/text()').extract(),
-                'request' : table_row.xpath('.//td[2]/text()').extract(),
-                'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
-                'status' : table_row.xpath('.//td[3]/a/text()').extract(),
-                'url' : response.url
-            }
+        #
+        # for table_row in ChildNutritiontable_rows[1:]:
+        #     yield {
+        #         # The .// retains the xpath above from table_rows.
+        #         'program' : "Child Nutrition",
+        #         'jurisdiction': response.url.split('covid-19/')[1],
+        #         'date': table_row.xpath('.//td[1]/text()').extract(),
+        #         'request' : table_row.xpath('.//td[2]/text()').extract(),
+        #         'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
+        #         'status' : table_row.xpath('.//td[3]/a/text()').extract(),
+        #         'url' : response.url
+        #     }
+        #
+        # for table_row in USDAtable_rows[1:]:
+        #     yield {
+        #         # The .// retains the xpath above from table_rows.
+        #         'program' : "USDA Foods Programs",
+        #         'jurisdiction': response.url.split('covid-19/')[1],
+        #         'date': table_row.xpath('.//td[1]/text()').extract(),
+        #         'request' : table_row.xpath('.//td[2]/text()').extract(),
+        #         'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
+        #         'status' : table_row.xpath('.//td[3]/a/text()').extract(),
+        #         'url' : response.url
+        #     }
+        #
+        # for table_row in WICtable_rows[1:]:
+        #     yield {
+        #         # The .// retains the xpath above from table_rows.
+        #         'program' : "WIC",
+        #         'jurisdiction': response.url.split('covid-19/')[1],
+        #         'date': table_row.xpath('.//td[1]/text()').extract(),
+        #         'request' : table_row.xpath('.//td[2]/text()').extract(),
+        #         'request_receive': table_row.xpath('.//td[2]/a/text()').extract(),
+        #         'status' : table_row.xpath('.//td[3]/a/text()').extract(),
+        #         'url' : response.url
+        #    }

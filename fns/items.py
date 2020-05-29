@@ -14,9 +14,9 @@ class FnsItem(scrapy.Item):
     jurisdiction = scrapy.Field()
     date = scrapy.Field()
     request = scrapy.Field()
+    request2 = scrapy.Field()
     request_receive = scrapy.Field()
     status = scrapy.Field()
-    url = scrapy.Field()
 
 
     # Todo: If possible, integrate URL for pdf.
