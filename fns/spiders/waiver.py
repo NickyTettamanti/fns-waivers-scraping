@@ -52,7 +52,7 @@ class WaiverSpider(scrapy.Spider):
                 'date': table_row.xpath('.//td[1]/text()').get(),
                 'request' : table_row.xpath('.//td[2]//text()').getall(),
                 'request_receive' : table_row.xpath('.//td[2]/a/text()').getall(),
-                'status' : table_row.xpath('.//td[3]/a/text()').get(),
+                'status' : table_row.xpath('.//td[3]/a/text()').getall(),
             }
 
         #
